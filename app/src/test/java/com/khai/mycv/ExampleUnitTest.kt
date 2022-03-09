@@ -1,4 +1,4 @@
-package com.example.mycv
+package com.khai.mycv
 
 import org.junit.Test
 

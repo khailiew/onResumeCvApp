@@ -1,4 +1,4 @@
-package com.example.mycv
+package com.khai.mycv
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

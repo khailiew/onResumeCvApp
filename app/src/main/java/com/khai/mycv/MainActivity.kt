@@ -1,4 +1,4 @@
-package com.example.mycv
+package com.khai.mycv
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,7 +7,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.mycv.R
 import com.example.mycv.databinding.ActivityMainBinding
+import com.khai.mycv.R
+import com.khai.mycv.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
