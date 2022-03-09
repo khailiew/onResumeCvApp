@@ -7,19 +7,25 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.khai.mycv.ui.home.HomeFragment"
-        android:label="@string/title_home"
+        android:name="com.khai.mycv.ui.home.AboutFragment"
+        android:label="@string/title_about"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.khai.mycv.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_education"
+        android:name="com.khai.mycv.ui.education.EducationFragment"
+        android:label="@string/title_education"
+        tools:layout="@layout/fragment_education" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.khai.mycv.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_experience"
+        android:name="com.khai.mycv.ui.experience.ExperienceFragment"
+        android:label="@string/title_experience"
+        tools:layout="@layout/fragment_experience" />
+
+    <fragment
+        android:id="@+id/navigation_fun"
+        android:name="com.khai.mycv.ui.funfacts.FunFragment"
+        android:label="@string/title_fun"
+        tools:layout="@layout/fragment_fun" />
 </navigation>

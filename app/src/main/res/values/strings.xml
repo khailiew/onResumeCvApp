@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">MyCV</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_about">About Me</string>
+    <string name="title_education">Education</string>
+    <string name="title_experience">Experience</string>
+    <string name="title_fun">Fun Facts</string>
+    <string name="about_photo_description">Portrait photo of Me</string>
 </resources>
