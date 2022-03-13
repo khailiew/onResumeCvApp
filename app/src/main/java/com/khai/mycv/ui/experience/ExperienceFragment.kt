@@ -7,9 +7,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.khai.mycv.CvApplication
+import com.khai.mycv.data.repository.DataRepository
 import com.khai.mycv.databinding.FragmentExperienceBinding
+import com.khai.mycv.ui.common.createFactory
 
 class ExperienceFragment : Fragment() {
+  private lateinit var dataRepository: DataRepository
+  private lateinit var viewModel: ExperienceViewModel
 
   private var _binding: FragmentExperienceBinding? = null
 
@@ -20,16 +25,20 @@ class ExperienceFragment : Fragment() {
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
   ): View {
-    val notificationsViewModel = ViewModelProvider(this).get(FunViewModel::class.java)
+    // initialise dependencies from appContainer
+    val appContainer = (activity?.application as CvApplication).appContainer
+    dataRepository = appContainer.dataRepository
+
+    val factory = ExperienceViewModel(dataRepository).createFactory()
+    viewModel = ViewModelProvider(this, factory)[ExperienceViewModel::class.java]
 
     _binding = FragmentExperienceBinding.inflate(inflater, container, false)
-    val root: View = binding.root
 
     val textView: TextView = binding.textNotifications
-    notificationsViewModel.text.observe(viewLifecycleOwner) {
+    viewModel.text.observe(viewLifecycleOwner) {
       textView.text = it
     }
-    return root
+    return binding.root
   }
 
   override fun onDestroyView() {

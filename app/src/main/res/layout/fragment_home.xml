@@ -5,36 +5,87 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.khai.mycv.ui.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.khai.mycv.ui.home.AboutFragment">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        tools:context="com.khai.mycv.ui.home.HomeFragment">
+
+        <TextView
+            android:id="@+id/title_text"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/hello_there"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:id="@+id/portrait_image"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
             android:background="@drawable/image_frame"
             android:contentDescription="@string/about_photo_description"
-            android:cropToPadding="true"
+            android:scaleType="fitXY"
             android:src="@drawable/img_id_photo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/title_text" />
 
         <TextView
-            android:id="@+id/text_home"
+            android:id="@+id/welcome_title_text"
+            style="@style/TextAppearance.AppCompat.Subhead"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_margin="24dp"
             android:textAlignment="center"
-            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/portrait_image" />
+
+        <TextView
+            android:id="@+id/welcome_body_text"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:lineSpacingMultiplier="1.15"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/welcome_title_text" />
+
+        <Button
+            android:id="@+id/about_project_button"
+            style="@style/AppTheme.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/about_project"
+            app:layout_constraintBottom_toTopOf="@+id/about_me_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcome_body_text"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <Button
+            android:id="@+id/about_me_button"
+            style="@style/AppTheme.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/about_me"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/about_project_button" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

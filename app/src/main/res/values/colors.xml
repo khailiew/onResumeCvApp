@@ -2,12 +2,18 @@
 <resources>
     <color name="turquoise_1">#00ACC1</color>
     <color name="turquoise_2">#26C6DA</color>
+    <color name="turquoise_3">#A0DBE3</color>
     <color name="navy_1">#1c2541</color>
 
-    <color name="gold_1">#FFCA28</color>
-    <color name="gold_2">#FFE082</color>
-    <color name="gold_3">#FFECB3</color>
+    <color name="lavender_1">#465ED7</color>
+    <color name="lavender_2">#7686DC</color>
+    <color name="lavender_3">#B2C1FF</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="black_1">#000000</color>
+    <color name="black_2">#1E1E1E</color>
+    <color name="black_3">#232323</color>
 </resources>

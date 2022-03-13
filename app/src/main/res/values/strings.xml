@@ -1,8 +1,18 @@
 <resources>
     <string name="app_name">MyCV</string>
-    <string name="title_about">About Me</string>
+    <string name="hello_there">Hello there! 👋</string>
+
+    <string name="about_intro">"I started this one to practise my Android dev skills, and it's handy to have my CV as an app in case I ever need to pitch it in an elevator 😉
+        Plus it's just a lot of fun creating something from ground up!"</string>
+
+
+    <string name="title_home">Home</string>
+    <string name="title_about_app">About the App</string>
+    <string name="title_about_me">About Me</string>
     <string name="title_education">Education</string>
     <string name="title_experience">Experience</string>
     <string name="title_fun">Fun Facts</string>
     <string name="about_photo_description">Portrait photo of Me</string>
+    <string name="about_project">About This Project</string>
+    <string name="about_me">About Myself</string>
 </resources>

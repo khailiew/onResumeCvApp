@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.Animation" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/nav_default_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/nav_default_exit_anim</item>
+    </style>
+
+    <style name="AppTheme.Button" parent="Widget.MaterialComponents.Button">
+        <item name="fontFamily">sans-serif-black</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="backgroundTint">@color/lavender_1</item>
+        <item name="layout_constraintWidth_percent" format="float" type="dimen">0.75</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+</resources>

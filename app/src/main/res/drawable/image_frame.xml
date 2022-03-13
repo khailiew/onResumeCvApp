@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-
     <gradient
         android:angle="270"
         android:endColor="?attr/colorSecondaryVariant"
         android:startColor="?attr/colorSecondary" />
-    <corners android:radius="5dp" />
+    <corners android:radius="8dp" />
     <padding
         android:bottom="@dimen/image_frame_padding"
         android:left="@dimen/image_frame_padding"

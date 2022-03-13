@@ -6,16 +6,16 @@
     "mobile": "",
     "email": ""
   },
-  "sections": [
-    {
-      "type": "about",
+  "sections": {
+    "about": {
       "title": "About",
-      "project_details": "",
+      "intro_title": "",
+      "intro_body": [""],
+      "project_details": [""],
       "profile_image": "",
-      "profile": ""
+      "profile": [""]
     },
-    {
-      "type": "education",
+    "education": {
       "title": "Education",
       "data": [
         {
@@ -28,11 +28,11 @@
         }
       ]
     },
-    {
-      "type": "experience",
-      "title": "Experience"},
-    {
-      "type": "fun_facts",
-      "title": "Fun Facts"}
-  ]
+    "experience": {
+      "title": "Experience"
+    },
+    "fun_facts": {
+      "title": "Fun Facts"
+    }
+  }
 }

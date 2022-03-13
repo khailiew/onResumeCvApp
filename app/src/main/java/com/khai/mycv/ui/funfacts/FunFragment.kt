@@ -1,15 +1,20 @@
-package com.khai.mycv.ui.experience
+package com.khai.mycv.ui.funfacts
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.khai.mycv.CvApplication
+import com.khai.mycv.data.repository.DataRepository
 import com.khai.mycv.databinding.FragmentFunBinding
+import com.khai.mycv.ui.common.createFactory
+import com.khai.mycv.ui.experience.FunViewModel
 
 class FunFragment : Fragment() {
+  private lateinit var dataRepository: DataRepository
+  private lateinit var viewModel: FunViewModel
 
   private var _binding: FragmentFunBinding? = null
 
@@ -20,16 +25,15 @@ class FunFragment : Fragment() {
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
   ): View {
-    val notificationsViewModel = ViewModelProvider(this).get(FunViewModel::class.java)
+    // initialise dependencies from appContainer
+    val appContainer = (activity?.application as CvApplication).appContainer
+    dataRepository = appContainer.dataRepository
+
+    val factory = FunViewModel(dataRepository).createFactory()
+    viewModel = ViewModelProvider(this, factory)[FunViewModel::class.java]
 
     _binding = FragmentFunBinding.inflate(inflater, container, false)
-    val root: View = binding.root
-
-    val textView: TextView = binding.textNotifications
-    notificationsViewModel.text.observe(viewLifecycleOwner) {
-      textView.text = it
-    }
-    return root
+    return binding.root
   }
 
   override fun onDestroyView() {

@@ -4,12 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.khai.mycv.CvApplication
+import com.khai.mycv.data.repository.DataRepository
 import com.khai.mycv.databinding.FragmentEducationBinding
+import com.khai.mycv.ui.common.createFactory
 
 class EducationFragment : Fragment() {
+  private lateinit var dataRepository: DataRepository
+  private lateinit var viewModel: EducationViewModel
 
   private var _binding: FragmentEducationBinding? = null
 
@@ -20,16 +24,15 @@ class EducationFragment : Fragment() {
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
   ): View {
-    val dashboardViewModel = ViewModelProvider(this).get(EducationViewModel::class.java)
+    // initialise dependencies from appContainer
+    val appContainer = (activity?.application as CvApplication).appContainer
+    dataRepository = appContainer.dataRepository
+
+    val factory = EducationViewModel(dataRepository).createFactory()
+    viewModel = ViewModelProvider(this, factory)[EducationViewModel::class.java]
 
     _binding = FragmentEducationBinding.inflate(inflater, container, false)
-    val root: View = binding.root
-
-    val textView: TextView = binding.textDashboard
-    dashboardViewModel.text.observe(viewLifecycleOwner) {
-      textView.text = it
-    }
-    return root
+    return binding.root
   }
 
   override fun onDestroyView() {

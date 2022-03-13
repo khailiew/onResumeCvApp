@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/bottom_nav_about"
+        android:id="@+id/navigation_home"
         android:icon="@drawable/ic_face_24"
-        android:title="@string/title_about" />
+        android:title="@string/title_about_me" />
 
     <item
-        android:id="@+id/bottom_nav_education"
+        android:id="@+id/navigation_education"
         android:icon="@drawable/ic_school_24"
         android:title="@string/title_education" />
 
     <item
-        android:id="@+id/bottom_nav_experience"
+        android:id="@+id/navigation_experience"
         android:icon="@drawable/ic_psychology_24"
         android:title="@string/title_experience" />
 
     <item
-        android:id="@+id/bottom_nav_fun_fragment"
+        android:id="@+id/navigation_fun"
         android:icon="@drawable/ic_celebration_24"
         android:title="@string/title_fun" />
 
