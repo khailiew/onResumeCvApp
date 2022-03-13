@@ -7,33 +7,45 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.khai.mycv.CvApplication
+import com.khai.mycv.data.repository.DataRepository
 import com.khai.mycv.databinding.FragmentHomeBinding
+import com.khai.mycv.ui.common.createFactory
 
 class AboutFragment : Fragment() {
 
-  private var _binding: FragmentHomeBinding? = null
+    private lateinit var dataRepository: DataRepository
+    private lateinit var viewModel: AboutViewModel
 
-  // This property is only valid between onCreateView and
-  // onDestroyView.
-  private val binding get() = _binding!!
+    private var _binding: FragmentHomeBinding? = null
 
-  override fun onCreateView(
-    inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-  ): View {
-    val homeViewModel = ViewModelProvider(this).get(AboutViewModel::class.java)
+    // This property is only valid between onCreateView and onDestroyView.
+    private val binding get() = _binding!!
 
-    _binding = FragmentHomeBinding.inflate(inflater, container, false)
-    val root: View = binding.root
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
+        // initialise dependencies from appContainer
+        val appContainer = (activity?.application as CvApplication).appContainer
+        dataRepository = appContainer.dataRepository
 
-    val textView: TextView = binding.textHome
-    homeViewModel.text.observe(viewLifecycleOwner) {
-      textView.text = it
+        val factory = AboutViewModel(dataRepository).createFactory()
+        viewModel = ViewModelProvider(this, factory)[AboutViewModel::class.java]
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+
+        return binding.root
     }
-    return root
-  }
 
-  override fun onDestroyView() {
-    super.onDestroyView()
-    _binding = null
-  }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val textView: TextView = binding.textHome
+        viewModel.fetchCvData().subscribe { data -> textView.text = data.toString() }
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

@@ -3,7 +3,7 @@
 
     <gradient
         android:angle="270"
-        android:endColor="@color/white"
+        android:endColor="?attr/colorSecondaryVariant"
         android:startColor="?attr/colorSecondary" />
     <corners android:radius="5dp" />
     <padding

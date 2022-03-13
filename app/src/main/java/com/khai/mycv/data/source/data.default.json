@@ -1,0 +1,38 @@
+{
+  "details": {
+    "name": "",
+    "address": "",
+    "pronouns": "",
+    "mobile": "",
+    "email": ""
+  },
+  "sections": [
+    {
+      "type": "about",
+      "title": "About",
+      "project_details": "",
+      "profile_image": "",
+      "profile": ""
+    },
+    {
+      "type": "education",
+      "title": "Education",
+      "data": [
+        {
+          "degree": "",
+          "period": "",
+          "institution": "",
+          "achievements": [
+            {}
+          ]
+        }
+      ]
+    },
+    {
+      "type": "experience",
+      "title": "Experience"},
+    {
+      "type": "fun_facts",
+      "title": "Fun Facts"}
+  ]
+}
