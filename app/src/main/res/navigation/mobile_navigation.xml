@@ -12,23 +12,31 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_about_app"
-            app:destination="@id/about_app"
-            android:label="@string/title_about_app"/>
+            app:destination="@id/navigation_about_app" />
         <action
             android:id="@+id/action_navigation_home_to_about_me"
-            app:destination="@id/about_me"
-            android:label="@string/title_about_me"/>
+            app:destination="@id/navigation_about_me" />
     </fragment>
 
     <fragment
-        android:id="@+id/about_app"
+        android:id="@+id/navigation_about_app"
         android:name="com.khai.mycv.ui.home.AboutAppFragment"
-        tools:layout="@layout/fragment_about_app" />
+        android:label="@string/title_about_app"
+        tools:layout="@layout/fragment_about_app">
+        <argument
+            android:name="cvResponse"
+            app:argType="com.khai.mycv.data.model.CvResponse" />
+    </fragment>
 
     <fragment
-        android:id="@+id/about_me"
+        android:id="@+id/navigation_about_me"
         android:name="com.khai.mycv.ui.home.AboutMeFragment"
-        tools:layout="@layout/fragment_about_me" />
+        android:label="@string/title_about_me"
+        tools:layout="@layout/fragment_about_me">
+        <argument
+            android:name="cvResponse"
+            app:argType="com.khai.mycv.data.model.CvResponse" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_education"

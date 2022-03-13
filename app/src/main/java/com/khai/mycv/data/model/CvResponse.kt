@@ -3,6 +3,7 @@ package com.khai.mycv.data.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 @JsonClass(generateAdapter = true)
 data class CvResponse(
@@ -10,7 +11,7 @@ data class CvResponse(
     val details: Details,
     @Json(name = "sections")
     val sections: Sections
-) {
+) : Serializable {
     @JsonClass(generateAdapter = true)
     data class Details(
         @Json(name = "address")
@@ -23,7 +24,7 @@ data class CvResponse(
         val name: String,
         @Json(name = "pronouns")
         val pronouns: String
-    )
+    ) : Serializable
 
     @JsonClass(generateAdapter = true)
     data class Sections(
@@ -35,7 +36,7 @@ data class CvResponse(
         val experience: Experience,
         @Json(name = "fun_facts")
         val funFacts: FunFacts
-    ) {
+    ) : Serializable {
         @JsonClass(generateAdapter = true)
         data class About(
             @Json(name = "intro_body")
@@ -46,11 +47,13 @@ data class CvResponse(
             val profile: List<String>,
             @Json(name = "profile_image")
             val profileImage: String,
+            @Json(name = "project_version")
+            val projectVersion: String,
             @Json(name = "project_details")
             val projectDetails: List<String>,
             @Json(name = "title")
             val title: String // About
-        )
+        ) : Serializable
 
         @JsonClass(generateAdapter = true)
         data class Education(
@@ -58,7 +61,7 @@ data class CvResponse(
             val `data`: List<Data>,
             @Json(name = "title")
             val title: String // Education
-        ) {
+        ) : Serializable {
             @JsonClass(generateAdapter = true)
             data class Data(
                 @Json(name = "achievements")
@@ -69,9 +72,9 @@ data class CvResponse(
                 val institution: String,
                 @Json(name = "period")
                 val period: String
-            ) {
+            ) : Serializable {
                 @JsonClass(generateAdapter = true)
-                class Achievement
+                class Achievement: Serializable
             }
         }
 
@@ -79,12 +82,12 @@ data class CvResponse(
         data class Experience(
             @Json(name = "title")
             val title: String // Experience
-        )
+        ) : Serializable
 
         @JsonClass(generateAdapter = true)
         data class FunFacts(
             @Json(name = "title")
             val title: String // Fun Facts
-        )
+        ) : Serializable
     }
 }

@@ -5,9 +5,6 @@
 
     <data>
 
-        <variable
-            name="viewModel"
-            type="com.khai.mycv.ui.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

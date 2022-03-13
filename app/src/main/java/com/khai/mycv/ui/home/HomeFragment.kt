@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import androidx.transition.TransitionInflater
 import com.khai.mycv.CvApplication
 import com.khai.mycv.R
+import com.khai.mycv.data.model.CvResponse
 import com.khai.mycv.data.repository.DataRepository
 import com.khai.mycv.databinding.FragmentHomeBinding
 import com.khai.mycv.ui.common.createFactory
@@ -36,20 +37,27 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        // display text data
-        viewModel.fetchCvData().subscribe { data ->
-            val aboutData = data.sections.about
-            binding.welcomeTitleText.text = aboutData.introTitle
-            binding.welcomeBodyText.text = parseFormatting(aboutData.introBody)
-        }
 
-        // bind buttons
-        binding.aboutAppButton.setOnClickListener {
-            it.findNavController().navigate(R.id.action_navigation_home_to_about_app)
-        }
-        binding.aboutMeButton.setOnClickListener {
-            it.findNavController().navigate(R.id.action_navigation_home_to_about_me)
-        }
+        lateinit var cvResponse: CvResponse
+        // display text data
+        viewModel.fetchCvData()
+            .doFinally {
+                // bind buttons
+                binding.aboutAppButton.setOnClickListener {
+                    val action = HomeFragmentDirections.actionNavigationHomeToAboutApp(cvResponse)
+                    it.findNavController().navigate(action)
+                }
+                binding.aboutMeButton.setOnClickListener {
+                    val action = HomeFragmentDirections.actionNavigationHomeToAboutMe(cvResponse)
+                    it.findNavController().navigate(action)
+                }
+            }.subscribe { data ->
+                cvResponse = data
+                val about = data.sections.about
+                binding.welcomeTitleText.text = about.introTitle
+                binding.welcomeBodyText.text = parseFormatting(about.introBody)
+            }
+
 
         // transition animation
         val transInflater = TransitionInflater.from(requireContext())
@@ -61,7 +69,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
 
     }

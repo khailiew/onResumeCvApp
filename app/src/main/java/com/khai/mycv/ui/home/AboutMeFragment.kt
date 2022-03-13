@@ -23,6 +23,7 @@ class AboutMeFragment : Fragment() {
         // transition animation
         val transInflater = TransitionInflater.from(requireContext())
         enterTransition = transInflater.inflateTransition(R.transition.slide_right)
+        returnTransition = transInflater.inflateTransition(R.transition.fade)
 
         return binding.root
     }
