@@ -16,7 +16,7 @@
     </style>
 
     <style name="RadialBackground" parent="Theme.MyCV">
-        <item name="android:windowBackground">@drawable/image_bg_radial_gradient</item>
+        <item name="android:windowBackground">@drawable/bg_radial_gradient</item>
         <item name="fontFamily">sans-serif</item>
         <item name="android:windowAnimationStyle">@style/AppTheme.Animation</item>
         <item name="android:textColor">@color/black_2</item>

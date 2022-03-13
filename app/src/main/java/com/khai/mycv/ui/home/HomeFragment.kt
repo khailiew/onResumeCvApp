@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.transition.TransitionInflater
 import com.khai.mycv.CvApplication
+import com.khai.mycv.R
 import com.khai.mycv.data.repository.DataRepository
 import com.khai.mycv.databinding.FragmentHomeBinding
 import com.khai.mycv.ui.common.createFactory
@@ -41,9 +44,17 @@ class HomeFragment : Fragment() {
         }
 
         // bind buttons
-        binding.aboutMeButton.setOnClickListener {
-
+        binding.aboutAppButton.setOnClickListener {
+            it.findNavController().navigate(R.id.action_navigation_home_to_about_app)
         }
+        binding.aboutMeButton.setOnClickListener {
+            it.findNavController().navigate(R.id.action_navigation_home_to_about_me)
+        }
+
+        // transition animation
+        val transInflater = TransitionInflater.from(requireContext())
+        exitTransition = transInflater.inflateTransition(R.transition.fade)
+        reenterTransition = transInflater.inflateTransition(R.transition.slide_left)
 
         return binding.root
     }

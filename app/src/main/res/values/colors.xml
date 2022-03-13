@@ -3,7 +3,9 @@
     <color name="turquoise_1">#00ACC1</color>
     <color name="turquoise_2">#26C6DA</color>
     <color name="turquoise_3">#A0DBE3</color>
-    <color name="navy_1">#1c2541</color>
+
+    <color name="navy_1">#000942</color>
+    <color name="navy_2">#004B96</color>
 
     <color name="lavender_1">#465ED7</color>
     <color name="lavender_2">#7686DC</color>
@@ -16,4 +18,5 @@
     <color name="black_1">#000000</color>
     <color name="black_2">#1E1E1E</color>
     <color name="black_3">#232323</color>
+    <color name="black_4">#323232</color>
 </resources>
