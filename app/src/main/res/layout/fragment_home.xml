@@ -14,12 +14,11 @@
         tools:context="com.khai.mycv.ui.home.HomeFragment">
 
         <TextView
-            android:id="@+id/title_text"
+            android:id="@+id/greeting_text"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:text="@string/hello_there"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,11 +36,11 @@
             android:src="@drawable/img_id_photo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_text" />
+            app:layout_constraintTop_toBottomOf="@+id/greeting_text" />
 
         <TextView
             android:id="@+id/welcome_title_text"
-            style="@style/TextAppearance.AppCompat.Subhead"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
@@ -52,7 +51,7 @@
 
         <TextView
             android:id="@+id/welcome_body_text"
-            style="@style/TextAppearance.AppCompat.Body1"
+            style="@style/TextAppearance.MaterialComponents.Body1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -63,28 +62,39 @@
             app:layout_constraintTop_toBottomOf="@id/welcome_title_text" />
 
         <Button
-            android:id="@+id/about_app_button"
+            android:id="@+id/about_me_button"
             style="@style/AppTheme.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/about_project"
-            app:layout_constraintBottom_toTopOf="@+id/about_me_button"
+            android:text="@string/about_me"
+            app:layout_constraintBottom_toTopOf="@+id/about_app_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/welcome_body_text"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <Button
-            android:id="@+id/about_me_button"
+            android:id="@+id/about_app_button"
+            style="@style/AppTheme.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/about_app"
+            app:layout_constraintBottom_toTopOf="@id/contact_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/about_me_button" />
+
+        <Button
+            android:id="@+id/contact_button"
             style="@style/AppTheme.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="@string/about_me"
+            android:enabled="false"
+            android:text="@string/contact_details"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/about_app_button" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

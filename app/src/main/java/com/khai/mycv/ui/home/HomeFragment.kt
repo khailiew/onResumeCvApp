@@ -54,6 +54,7 @@ class HomeFragment : Fragment() {
             }.subscribe { data ->
                 cvResponse = data
                 val about = data.sections.about
+                binding.greetingText.text = about.greeting
                 binding.welcomeTitleText.text = about.introTitle
                 binding.welcomeBodyText.text = parseFormatting(about.introBody)
             }
@@ -67,11 +68,6 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

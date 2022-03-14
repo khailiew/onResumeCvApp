@@ -12,10 +12,16 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_about_app"
-            app:destination="@id/navigation_about_app" />
+            app:destination="@id/navigation_about_app"
+            app:popUpTo="@+id/navigation_home"
+            app:popUpToSaveState="true"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_navigation_home_to_about_me"
-            app:destination="@id/navigation_about_me" />
+            app:destination="@id/navigation_about_me"
+            app:popUpTo="@+id/navigation_home"
+            app:popUpToSaveState="true"
+            app:popUpToInclusive="false"  />
     </fragment>
 
     <fragment

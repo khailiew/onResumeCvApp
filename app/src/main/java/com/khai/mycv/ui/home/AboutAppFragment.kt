@@ -31,6 +31,7 @@ class AboutAppFragment: Fragment() {
 
         // transition animation
         val transInflater = TransitionInflater.from(requireContext())
+        allowEnterTransitionOverlap = false
         enterTransition = transInflater.inflateTransition(R.transition.slide_right)
         returnTransition = transInflater.inflateTransition(R.transition.fade)
 

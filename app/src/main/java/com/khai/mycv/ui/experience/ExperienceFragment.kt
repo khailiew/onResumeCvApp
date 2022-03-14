@@ -34,10 +34,6 @@ class ExperienceFragment : Fragment() {
 
     _binding = FragmentExperienceBinding.inflate(inflater, container, false)
 
-    val textView: TextView = binding.textNotifications
-    viewModel.text.observe(viewLifecycleOwner) {
-      textView.text = it
-    }
     return binding.root
   }
 

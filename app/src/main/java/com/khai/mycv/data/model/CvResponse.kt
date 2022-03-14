@@ -43,6 +43,8 @@ data class CvResponse(
             val introBody: List<String>,
             @Json(name = "intro_title")
             val introTitle: String,
+            @Json(name = "greeting")
+            val greeting: String,
             @Json(name = "profile")
             val profile: List<String>,
             @Json(name = "profile_image")
