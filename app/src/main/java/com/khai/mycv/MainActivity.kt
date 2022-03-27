@@ -10,6 +10,14 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.khai.mycv.databinding.ActivityMainBinding
 
+interface IBackPressedHandler {
+    enum class Action {
+        DO_BACKPRESS, SKIP_BACKPRESS
+    }
+
+    fun onBackPressed(): Action
+}
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -45,4 +53,16 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
+
+    //    https://stackoverflow.com/questions/5448653/how-to-implement-onbackpressed-in-fragments
+    override fun onBackPressed() {
+        val fragment =
+            this.supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+        val backPressAction = (fragment as? IBackPressedHandler)?.onBackPressed()
+
+        if (backPressAction == null || backPressAction == IBackPressedHandler.Action.DO_BACKPRESS) {
+            super.onBackPressed()
+        }
+    }
 }
+

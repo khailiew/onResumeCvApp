@@ -1,18 +1,26 @@
-package com.khai.mycv.ui.home
+package com.khai.mycv.ui.about
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
-import androidx.transition.TransitionInflater
-import com.khai.mycv.R
+import com.khai.mycv.data.model.CvResponse
 import com.khai.mycv.databinding.FragmentAboutMeBinding
 import com.khai.mycv.ui.common.parseFormatting
 
 class AboutMeFragment : Fragment() {
-    private val args: AboutMeFragmentArgs by navArgs()
+
+    companion object {
+        private const val DATA_KEY = "data"
+        fun newInstance(data: CvResponse.About) =
+            AboutMeFragment().apply {
+                arguments = bundleOf(DATA_KEY to data)
+            }
+    }
+
+    private lateinit var _data: CvResponse.About
 
     private var _binding: FragmentAboutMeBinding? = null
 
@@ -24,14 +32,9 @@ class AboutMeFragment : Fragment() {
     ): View {
         _binding = FragmentAboutMeBinding.inflate(inflater, container, false)
 
-        val response = args.cvResponse
-        binding.profileText.text = parseFormatting(response.sections.about.profile)
+        _data = arguments?.getSerializable(DATA_KEY) as CvResponse.About
 
-        // transition animation
-        val transInflater = TransitionInflater.from(requireContext())
-        allowEnterTransitionOverlap = false
-        enterTransition = transInflater.inflateTransition(R.transition.slide_right)
-        returnTransition = transInflater.inflateTransition(R.transition.fade)
+        binding.profileText.text = _data.profile?.let { parseFormatting(it) }
 
         return binding.root
     }
