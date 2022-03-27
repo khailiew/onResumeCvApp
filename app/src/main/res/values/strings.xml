@@ -10,4 +10,5 @@
     <string name="find_out_more">Find Out More 👆</string>
     <string name="contact_details">Contact Details</string>
     <string name="about_separator">|</string>
+    <string name="app_version">onRésumé() v%1$s"</string>
 </resources>

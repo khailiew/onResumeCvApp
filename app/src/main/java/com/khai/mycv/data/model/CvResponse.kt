@@ -27,7 +27,6 @@ data class CvResponse(
         @Json(name = "type") val type: AboutType,
         @Json(name = "title") val title: String?,
         @Json(name = "profile") val profile: List<String>?,
-        @Json(name = "project_version") val projectVersion: String?,
         @Json(name = "project_link") val projectLink: String?,
         @Json(name = "project_details") val projectDetails: List<String>?,
         @Json(name = "name") val name: String?,
@@ -44,13 +43,10 @@ data class CvResponse(
         @JsonClass(generateAdapter = true)
         data class Data(
             @Json(name = "degree") val degree: String,
-            @Json(name = "period") val period: String,
+            @Json(name = "period") val period: String?,
             @Json(name = "institution") val institution: String,
-            @Json(name = "achievements") val achievements: List<Achievement>
-        ) : Serializable {
-            @JsonClass(generateAdapter = true)
-            class Achievement: Serializable
-        }
+            @Json(name = "details") val details: List<String>?
+        ) : Serializable
     }
 
     @JsonClass(generateAdapter = true)

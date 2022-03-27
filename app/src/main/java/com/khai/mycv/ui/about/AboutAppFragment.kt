@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import com.khai.mycv.BuildConfig
 import com.khai.mycv.data.model.CvResponse
 import com.khai.mycv.databinding.FragmentAboutAppBinding
+import com.khai.mycv.ui.binding.setVersionText
 import com.khai.mycv.ui.common.parseFormatting
 
 class AboutAppFragment : Fragment() {
@@ -21,6 +23,7 @@ class AboutAppFragment : Fragment() {
                 )
             }
     }
+
     private lateinit var _data: CvResponse.About
 
     private var _binding: FragmentAboutAppBinding? = null
@@ -35,7 +38,7 @@ class AboutAppFragment : Fragment() {
 
         _data = arguments?.getSerializable(DATA_KEY) as CvResponse.About
 
-        binding.versionText.text = _data.projectVersion
+        setVersionText(binding.versionText, BuildConfig.VERSION_NAME)
         binding.repoLink.text = _data.projectLink
         binding.projectText.text = _data.projectDetails?.let { parseFormatting(it) }
 
