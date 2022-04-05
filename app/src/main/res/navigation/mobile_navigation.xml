@@ -46,4 +46,10 @@
         android:label="@string/title_fun"
         tools:layout="@layout/fragment_fun" />
 
+    <fragment
+        android:id="@+id/navigation_sandbox"
+        android:name="com.khai.mycv.ui.sandbox.SandboxFragment"
+        android:label="@string/title_sandbox"
+        tools:layout="@layout/fragment_sandbox" />
+
 </navigation>

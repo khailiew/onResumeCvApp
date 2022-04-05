@@ -31,7 +31,7 @@ android {
             variant ->
                 variant.outputs.all {
                     output ->
-                        def name = "onRésumé"
+                        def name = "onResume"
                         output.outputFileName = "${name}_v${versionName}.apk"
                 }
         }

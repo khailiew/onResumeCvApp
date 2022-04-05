@@ -21,4 +21,10 @@
         android:icon="@drawable/ic_celebration_24"
         android:title="@string/title_fun" />
 
+    <item
+        android:id="@+id/navigation_sandbox"
+        android:icon="@drawable/ic_architecture_24"
+        android:title="@string/title_sandbox" />
+
+
 </menu>

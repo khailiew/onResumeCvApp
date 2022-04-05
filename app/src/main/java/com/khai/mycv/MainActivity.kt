@@ -40,7 +40,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home,
                 R.id.navigation_education,
                 R.id.navigation_experience,
-                R.id.navigation_fun
+                R.id.navigation_fun,
+                R.id.navigation_sandbox
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
