@@ -1,4 +1,4 @@
-package com.khai.mycv.ui.about
+package com.khai.mycv.ui.component.about
 
 import androidx.lifecycle.ViewModel
 import com.khai.mycv.data.model.CvResponse

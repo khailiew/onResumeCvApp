@@ -1,4 +1,4 @@
-package com.khai.mycv.ui.experience
+package com.khai.mycv.ui.component.experience
 
 import androidx.lifecycle.ViewModel
 

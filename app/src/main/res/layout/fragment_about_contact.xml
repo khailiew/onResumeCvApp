@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
 
             android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-            tools:context="com.khai.mycv.ui.about.AboutContactFragment">
+            tools:context=".ui.component.about.AboutContactFragment">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_top"

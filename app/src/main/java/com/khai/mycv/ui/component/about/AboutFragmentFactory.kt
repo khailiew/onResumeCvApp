@@ -1,4 +1,4 @@
-package com.khai.mycv.ui.about
+package com.khai.mycv.ui.component.about
 
 import androidx.fragment.app.Fragment
 import com.khai.mycv.data.adapter.AboutType

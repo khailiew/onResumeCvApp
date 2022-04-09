@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/navigation_about_tab"
-        android:name="com.khai.mycv.ui.about.AboutTabFragment"
+        android:name="com.khai.mycv.ui.component.about.AboutTabFragment"
         android:label="@string/title_about"
         tools:layout="@layout/fragment_about_app">
         <argument
@@ -30,25 +30,25 @@
 
     <fragment
         android:id="@+id/navigation_education"
-        android:name="com.khai.mycv.ui.education.EducationFragment"
+        android:name="com.khai.mycv.ui.component.education.EducationFragment"
         android:label="@string/title_education"
         tools:layout="@layout/fragment_education" />
 
     <fragment
         android:id="@+id/navigation_experience"
-        android:name="com.khai.mycv.ui.experience.ExperienceFragment"
+        android:name="com.khai.mycv.ui.component.experience.ExperienceFragment"
         android:label="@string/title_experience"
         tools:layout="@layout/fragment_experience" />
 
     <fragment
         android:id="@+id/navigation_fun"
-        android:name="com.khai.mycv.ui.funfacts.FunFragment"
+        android:name="com.khai.mycv.ui.component.funfacts.FunFragment"
         android:label="@string/title_fun"
         tools:layout="@layout/fragment_fun" />
 
     <fragment
         android:id="@+id/navigation_sandbox"
-        android:name="com.khai.mycv.ui.sandbox.SandboxFragment"
+        android:name="com.khai.mycv.ui.component.sandbox.SandboxFragment"
         android:label="@string/title_sandbox"
         tools:layout="@layout/fragment_sandbox" />
 

@@ -1,4 +1,4 @@
-package com.khai.mycv.ui.sandbox
+package com.khai.mycv.ui.component.sandbox
 
 import android.content.Context
 import android.os.Bundle
@@ -9,10 +9,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.snackbar.Snackbar
 import com.khai.mycv.databinding.FragmentSandboxBinding
 import com.khai.mycv.ui.common.createFactory
-import com.khai.mycv.ui.experience.SandboxViewModel
+import com.khai.mycv.ui.component.experience.SandboxViewModel
 
 
 class SandboxFragment: Fragment() {

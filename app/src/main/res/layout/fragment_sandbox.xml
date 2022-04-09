@@ -15,7 +15,7 @@
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context="com.khai.mycv.ui.sandbox.SandboxFragment">
+            tools:context=".ui.component.sandbox.SandboxFragment">
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"

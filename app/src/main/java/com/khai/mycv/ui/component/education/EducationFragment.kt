@@ -1,4 +1,4 @@
-package com.khai.mycv.ui.funfacts
+package com.khai.mycv.ui.component.education
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,15 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.khai.mycv.CvApplication
 import com.khai.mycv.data.repository.DataRepository
-import com.khai.mycv.databinding.FragmentFunBinding
+import com.khai.mycv.databinding.FragmentEducationBinding
 import com.khai.mycv.ui.common.createFactory
-import com.khai.mycv.ui.experience.FunViewModel
 
-class FunFragment : Fragment() {
+class EducationFragment : Fragment() {
   private lateinit var dataRepository: DataRepository
-  private lateinit var viewModel: FunViewModel
+  private lateinit var viewModel: EducationViewModel
 
-  private var _binding: FragmentFunBinding? = null
+  private var _binding: FragmentEducationBinding? = null
 
   // This property is only valid between onCreateView and
   // onDestroyView.
@@ -29,10 +28,10 @@ class FunFragment : Fragment() {
     val appContainer = (activity?.application as CvApplication).appContainer
     dataRepository = appContainer.dataRepository
 
-    val factory = FunViewModel(dataRepository).createFactory()
-    viewModel = ViewModelProvider(this, factory)[FunViewModel::class.java]
+    val factory = EducationViewModel(dataRepository).createFactory()
+    viewModel = ViewModelProvider(this, factory)[EducationViewModel::class.java]
 
-    _binding = FragmentFunBinding.inflate(inflater, container, false)
+    _binding = FragmentEducationBinding.inflate(inflater, container, false)
     return binding.root
   }
 

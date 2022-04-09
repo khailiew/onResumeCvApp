@@ -4,20 +4,20 @@ import com.squareup.moshi.FromJson
 import com.squareup.moshi.ToJson
 
 enum class AboutType(val typeName: String) {
-    ABOUT_ME("me"),
-    ABOUT_APP("app"),
+    ABOUT_ME("about_me"),
+    ABOUT_APP("about_app"),
     CONTACT_DETAILS("contact");
 
     companion object {
-        fun fromType(type: String) = values().associateBy(AboutType::typeName)[type]
+        fun fromString(type: String): AboutType? = values().associateBy(AboutType::typeName)[type]
     }
 }
 
-class AboutTypeAdapter {
+class AboutTypeAdapter: BaseTypeAdapter<AboutType>() {
     @ToJson
-    fun toJson(type: AboutType): String = type.typeName
+    override fun toJson(type: AboutType): String = type.typeName
 
     @FromJson
-    fun fromJson(value: String): AboutType? = AboutType.fromType(value)
+    override fun fromJson(value: String): AboutType? = AboutType.fromString(value)
 
 }

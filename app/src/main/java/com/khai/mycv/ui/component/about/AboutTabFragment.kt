@@ -1,4 +1,4 @@
-package com.khai.mycv.ui.about
+package com.khai.mycv.ui.component.about
 
 import android.os.Bundle
 import android.view.LayoutInflater

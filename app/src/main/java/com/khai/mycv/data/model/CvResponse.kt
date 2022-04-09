@@ -2,6 +2,7 @@ package com.khai.mycv.data.model
 
 
 import com.khai.mycv.data.adapter.AboutType
+import com.khai.mycv.data.adapter.MediaType
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import java.io.Serializable
@@ -38,10 +39,11 @@ data class CvResponse(
 
     @JsonClass(generateAdapter = true)
     data class Education(
-        @Json(name = "title") val title: String, @Json(name = "data") val `data`: List<Data>
+        @Json(name = "title") val title: String,
+        @Json(name = "data") val data: List<EducationData>
     ) : Serializable {
         @JsonClass(generateAdapter = true)
-        data class Data(
+        data class EducationData(
             @Json(name = "degree") val degree: String,
             @Json(name = "period") val period: String?,
             @Json(name = "institution") val institution: String,
@@ -56,6 +58,20 @@ data class CvResponse(
 
     @JsonClass(generateAdapter = true)
     data class FunFacts(
-        @Json(name = "title") val title: String
-    ) : Serializable
+        @Json(name = "title") val title: String,
+        @Json(name = "data") val data: List<FunFactsData>
+    ) : Serializable {
+        @JsonClass(generateAdapter = true)
+        data class FunFactsData(
+            @Json(name = "type") val type: MediaType,
+            @Json(name = "title") val title: String?,
+            @Json(name = "body") val body: String?,
+            @Json(name = "video_url") val videoUrl: String?,
+            @Json(name = "img_src") val imgSrc: String?,
+
+        )
+    }
+
+
+
 }
