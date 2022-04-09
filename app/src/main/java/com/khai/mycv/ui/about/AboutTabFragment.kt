@@ -16,7 +16,7 @@ import com.khai.mycv.IBackPressedHandler
 import com.khai.mycv.R
 import com.khai.mycv.databinding.FragmentAboutBinding
 
-class AboutTabFragment() :
+class AboutTabFragment :
     Fragment(), IBackPressedHandler {
 
     private val args: AboutTabFragmentArgs by navArgs()
@@ -74,7 +74,11 @@ class AboutTabFragment() :
         override fun createFragment(position: Int): Fragment {
             val aboutData = viewModel.aboutData[position]
             val aboutType = aboutData.type
-            return AboutFragmentFactory.getFragment(aboutType, aboutData)
+
+            return if (aboutType == null)
+                Fragment() // empty fragment for public data-less version
+            else
+                AboutFragmentFactory.getFragment(aboutType, aboutData)
         }
     }
 

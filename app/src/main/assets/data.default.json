@@ -1,39 +1,56 @@
 {
-  "details": {
-    "name": "",
-    "address": "",
-    "pronouns": "",
-    "mobile": "",
-    "email": ""
+  "home": {
+    "title": "",
+    "greeting": "Note: Fields are intentionally empty by default to protect my personal information - please request compiled APK for populated version",
+    "intro_title": "",
+    "intro_body": [
+    ]
   },
-  "sections": {
-    "about": {
-      "title": "About",
-      "intro_title": "",
-      "intro_body": [""],
-      "project_version": "",
-      "project_details": [""],
-      "profile_image": "",
-      "profile": [""]
-    },
-    "education": {
-      "title": "Education",
-      "data": [
-        {
-          "degree": "",
-          "period": "",
-          "institution": "",
-          "achievements": [
-            {}
-          ]
-        }
+  "about": [
+    {
+      "type": "",
+      "title": "",
+      "profile": [
       ]
     },
-    "experience": {
-      "title": "Experience"
+    {
+      "type": "",
+      "title": "",
+      "project_link": "",
+      "project_details": [
+      ]
     },
-    "fun_facts": {
-      "title": "Fun Facts"
+    {
+      "type": "",
+      "title": "",
+      "name": "",
+      "address": "",
+      "pronouns": "",
+      "mobile": "",
+      "email": ""
     }
+  ],
+  "education": {
+    "title": "",
+    "data": [
+      {
+        "degree": "",
+        "institution": "",
+        "details": [
+        ]
+      },
+      {
+        "degree": "",
+        "institution": "",
+        "details": [
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "title": ""
+  },
+  "fun_facts": {
+    "title": ""
   }
 }

@@ -24,7 +24,7 @@ data class CvResponse(
 
     @JsonClass(generateAdapter = true)
     data class About(
-        @Json(name = "type") val type: AboutType,
+        @Json(name = "type") val type: AboutType?,
         @Json(name = "title") val title: String?,
         @Json(name = "profile") val profile: List<String>?,
         @Json(name = "project_link") val projectLink: String?,
