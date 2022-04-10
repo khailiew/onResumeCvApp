@@ -5,6 +5,7 @@ import com.squareup.moshi.ToJson
 
 enum class MediaType(val typeName: String) {
     TEXT ("text"),
+    INFO_TEXT ("info_text"),
     VIDEO_LINK ("video_link"),
     IMAGE ("image");
 

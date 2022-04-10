@@ -14,6 +14,7 @@ fun setVersionText(view: TextView, version: String) {
 @BindingAdapter("android:imgUrl")
 fun loadImage(imageView: ImageView, url: String?) {
     if (!url.isNullOrEmpty()) {
+        // https://support.exclaimer.com/hc/en-gb/articles/360040813912-How-to-host-images-using-Google-Drive
         Glide.with(imageView.context).load(url).into(imageView)
     }
 }

@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
             name="funData"
             type="com.khai.mycv.data.model.CvResponse.FunFacts.FunFactsData" />
     </data>
@@ -26,6 +30,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@{funData.title}"
+                android:visibility="@{funData.title == null ? view.GONE : view.VISIBLE}"
                 app:layout_constraintEnd_toStartOf="@id/imageView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -36,20 +41,28 @@
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:paddingEnd="@dimen/recycler_card_padding"
                 android:text="@{funData.body}"
+                android:visibility="@{funData.body == null ? view.GONE : view.VISIBLE}"
                 app:layout_constraintEnd_toStartOf="@id/imageView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/title"
-                tools:text="Some message in body" />
+                tools:text="Some message in body"
+                tools:ignore="RtlSymmetry" />
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="@drawable/image_frame"
                 android:contentDescription="@{funData.title}"
                 android:imgUrl="@{funData.imgSrc}"
+                android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHeight_max="@dimen/recycler_card_max_image_height"
+                app:layout_constraintStart_toEndOf="@id/title"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

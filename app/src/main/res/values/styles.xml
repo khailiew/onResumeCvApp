@@ -17,7 +17,7 @@
     <style name="AppTheme.CardView" parent="Widget.MaterialComponents.CardView">
         <item name="cardElevation">@dimen/recycler_card_elevation</item>
         <item name="cardMaxElevation">@dimen/recycler_card_max_elevation</item>
-        <item name="cardBackgroundColor">?colorSecondaryVariant</item>
+        <item name="cardBackgroundColor">@color/off_white</item>
         <item name="cardCornerRadius">@dimen/recycler_card_radius</item>
         <item name="cardUseCompatPadding">true</item>
         <item name="strokeColor">@color/navy_1</item>

@@ -7,10 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.khai.mycv.data.adapter.MediaType
 import com.khai.mycv.data.model.CvResponse.FunFacts.FunFactsData
 import com.khai.mycv.databinding.RowItemFunImageBinding
+import com.khai.mycv.databinding.RowItemFunInfoTextBinding
 import com.khai.mycv.databinding.RowItemFunTextBinding
 import com.khai.mycv.databinding.RowItemFunVideoLinkBinding
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 
 class FunRecyclerAdapter(var data: List<FunFactsData>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -19,37 +18,6 @@ class FunRecyclerAdapter(var data: List<FunFactsData>) :
         const val N_COLUMNS = 2
     }
 
-    interface IBindableViewHolder {
-        fun bind(itemData: FunFactsData)
-    }
-
-    inner class FunTextViewHolder(private val binding: RowItemFunTextBinding) :
-        RecyclerView.ViewHolder(binding.root), IBindableViewHolder {
-        override fun bind(itemData: FunFactsData) {
-            binding.funData = itemData
-        }
-    }
-
-    inner class FunImageViewHolder(private val binding: RowItemFunImageBinding) :
-        RecyclerView.ViewHolder(binding.root), IBindableViewHolder {
-        override fun bind(itemData: FunFactsData) {
-            binding.funData = itemData
-        }
-    }
-
-    inner class FunVideoViewHolder(private val binding: RowItemFunVideoLinkBinding) :
-        RecyclerView.ViewHolder(binding.root), IBindableViewHolder {
-        override fun bind(itemData: FunFactsData) {
-            binding.funData = itemData
-            // load videoId from URL
-            binding.youtubePlayerView.addYouTubePlayerListener(object: AbstractYouTubePlayerListener() {
-                override fun onReady(youTubePlayer: YouTubePlayer) {
-                    val videoId = itemData.videoUrl?.split("v=")?.last() ?: ""
-                    youTubePlayer.cueVideo(videoId, 0f)
-                }
-            })
-        }
-    }
 
     override fun getItemViewType(position: Int): Int {
         return data[position].type.ordinal // return enum ordinal
@@ -60,6 +28,13 @@ class FunRecyclerAdapter(var data: List<FunFactsData>) :
         return when (MediaType.values()[viewType]) {
             MediaType.TEXT -> FunTextViewHolder(
                 RowItemFunTextBinding.inflate(
+                    inflater,
+                    parent,
+                    false
+                )
+            )
+            MediaType.INFO_TEXT -> FunInfoTextViewHolder(
+                RowItemFunInfoTextBinding.inflate(
                     inflater,
                     parent,
                     false
@@ -93,3 +68,4 @@ class FunRecyclerAdapter(var data: List<FunFactsData>) :
 
     override fun getItemCount() = data.size
 }
+

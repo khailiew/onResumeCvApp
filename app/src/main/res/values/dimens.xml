@@ -3,12 +3,12 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="image_frame_padding">6dp</dimen>
+    <dimen name="image_frame_padding">4dp</dimen>
 
     <dimen name="recycler_card_padding">12dp</dimen>
     <dimen name="recycler_card_radius">8dp</dimen>
     <dimen name="recycler_card_elevation">4dp</dimen>
     <dimen name="recycler_card_max_elevation">4dp</dimen>
-    <dimen name="recycler_card_max_image_height">100dp</dimen>
+    <dimen name="recycler_card_max_image_height">160dp</dimen>
 
 </resources>
