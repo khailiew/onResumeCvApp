@@ -10,36 +10,50 @@
             type="com.khai.mycv.data.model.CvResponse.FunFacts.FunFactsData" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
+        style="@style/AppTheme.CardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/title"
-            style="@style/TextAppearance.AppCompat.Title"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{funData.title}"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Title" />
+            android:layout_height="match_parent"
+            android:padding="@dimen/recycler_card_padding">
 
-        <TextView
-            android:id="@+id/body"
-            style="@style/TextAppearance.AppCompat.Body1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{funData.body}"
-            app:layout_constraintTop_toBottomOf="@id/title"
-            tools:text="Some message in body" />
+            <TextView
+                android:id="@+id/title"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{funData.title}"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Title" />
 
-        <TextView
-            android:id="@+id/videoLink"
-            style="@style/TextAppearance.AppCompat.Body1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{funData.videoUrl}"
-            app:layout_constraintTop_toBottomOf="@id/body"
-            tools:text="Video link" />
+            <TextView
+                android:id="@+id/body"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{funData.body}"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                tools:text="Some message in body" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/videoLink"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{funData.videoUrl}"
+                app:layout_constraintTop_toBottomOf="@id/body"
+                tools:text="Video link" />
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtubePlayerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:autoPlay="false"
+                app:layout_constraintTop_toBottomOf="@id/videoLink"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

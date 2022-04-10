@@ -2,12 +2,15 @@ package com.khai.mycv.ui.component.funfacts
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.khai.mycv.data.adapter.MediaType
 import com.khai.mycv.data.model.CvResponse.FunFacts.FunFactsData
 import com.khai.mycv.databinding.RowItemFunImageBinding
 import com.khai.mycv.databinding.RowItemFunTextBinding
 import com.khai.mycv.databinding.RowItemFunVideoLinkBinding
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 
 class FunRecyclerAdapter(var data: List<FunFactsData>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -19,6 +22,7 @@ class FunRecyclerAdapter(var data: List<FunFactsData>) :
     interface IBindableViewHolder {
         fun bind(itemData: FunFactsData)
     }
+
     inner class FunTextViewHolder(private val binding: RowItemFunTextBinding) :
         RecyclerView.ViewHolder(binding.root), IBindableViewHolder {
         override fun bind(itemData: FunFactsData) {
@@ -37,6 +41,13 @@ class FunRecyclerAdapter(var data: List<FunFactsData>) :
         RecyclerView.ViewHolder(binding.root), IBindableViewHolder {
         override fun bind(itemData: FunFactsData) {
             binding.funData = itemData
+            // load videoId from URL
+            binding.youtubePlayerView.addYouTubePlayerListener(object: AbstractYouTubePlayerListener() {
+                override fun onReady(youTubePlayer: YouTubePlayer) {
+                    val videoId = itemData.videoUrl?.split("v=")?.last() ?: ""
+                    youTubePlayer.cueVideo(videoId, 0f)
+                }
+            })
         }
     }
 
@@ -61,13 +72,17 @@ class FunRecyclerAdapter(var data: List<FunFactsData>) :
                     false
                 )
             )
-            MediaType.VIDEO_LINK -> FunVideoViewHolder(
-                RowItemFunVideoLinkBinding.inflate(
+            MediaType.VIDEO_LINK -> {
+                val binding = RowItemFunVideoLinkBinding.inflate(
                     inflater,
                     parent,
                     false
                 )
-            )
+                // YouTube Player lifecycle
+                parent.findViewTreeLifecycleOwner()?.lifecycle?.addObserver(binding.youtubePlayerView)
+
+                return FunVideoViewHolder(binding)
+            }
         }
     }
 

@@ -19,6 +19,7 @@ class FunFragment : Fragment() {
     private lateinit var dataRepository: DataRepository
     private lateinit var viewModel: FunViewModel
     private lateinit var recyclerAdapter: FunRecyclerAdapter
+    private lateinit var _layoutManager: GridLayoutManager
 
     private var _binding: FragmentFunBinding? = null
 
@@ -38,10 +39,15 @@ class FunFragment : Fragment() {
 
         _binding = FragmentFunBinding.inflate(inflater, container, false)
 
+        // RecyclerView
         recyclerAdapter = FunRecyclerAdapter(listOf())
+        _layoutManager = GridLayoutManager(context, FunRecyclerAdapter.N_COLUMNS)
+        // card span behaviour
+        _layoutManager.spanSizeLookup = CardSpanSizeLookup()
+
         with(binding.cardRecyclerView) {
-            layoutManager = GridLayoutManager(context, FunRecyclerAdapter.N_COLUMNS)
-            adapter = recyclerAdapter // initialise empty adapter
+            this.layoutManager = _layoutManager
+            this.adapter = recyclerAdapter // initialise empty adapter
         }
         viewModel.fetchCvData().subscribeBy(
             onSuccess = { bindRecyclerData(it) }
@@ -59,5 +65,12 @@ class FunFragment : Fragment() {
     private fun bindRecyclerData(cvData: CvResponse) {
         recyclerAdapter.data = cvData.funFacts.data
         binding.cardRecyclerView.adapter?.notifyDataSetChanged()
+    }
+
+    inner class CardSpanSizeLookup: GridLayoutManager.SpanSizeLookup() {
+        override fun getSpanSize(position: Int): Int {
+            val span = recyclerAdapter.data[position].span?.coerceAtMost(FunRecyclerAdapter.N_COLUMNS)
+            return span ?: FunRecyclerAdapter.N_COLUMNS
+        }
     }
 }

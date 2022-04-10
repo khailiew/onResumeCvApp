@@ -64,14 +64,13 @@ data class CvResponse(
         @JsonClass(generateAdapter = true)
         data class FunFactsData(
             @Json(name = "type") val type: MediaType,
+            @Json(name = "span") val span: Int?,
             @Json(name = "title") val title: String?,
             @Json(name = "body") val body: String?,
             @Json(name = "video_url") val videoUrl: String?,
             @Json(name = "img_src") val imgSrc: String?,
-
         )
     }
-
 
 
 }
