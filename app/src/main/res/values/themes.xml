@@ -1,13 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MyCV" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.MyCV" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/turquoise_1</item>
         <item name="colorPrimaryVariant">@color/turquoise_2</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/lavender_1</item>
-        <item name="colorSecondaryVariant">@color/lavender_3</item>
+        <item name="colorSecondaryVariant">#EBEFFC</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnPrimary</item>
